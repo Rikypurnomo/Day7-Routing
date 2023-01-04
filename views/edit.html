@@ -35,28 +35,28 @@
     </nav>
         
         <div class="container mt-5" style="width: 40vw;">
-                <h3 style="text-align:center;" class="mb-5">ADD MY PROJECT</h3>
-                <form action="/project" method="POST">
+                <h3 style="text-align:center;" class="mb-5">UPDATE MY PROJECT</h3>
+                <form action="/editInput/{{.ProjectDetail.Id}}" method="post">
                   
                   <div class="mb-3 ms-5 me-5">
                     <label for="Project_name" class="form-label">Project Name</label>
-                    <input type="text" id="project_name" class="form-control" name="name">
+                    <input type="text" value="{{.ProjectDetail.ProjectName}}" id="project_name" class="form-control" name="name">
                   </div>
 
                   <div class="d-flex gap-2 ms-5 me-5">
                     <div class="mb-3 w-100">
                       <label for="start_date" class="form-label">Start Date</label>
-                      <input type="date" class="form-control" id="start_date" name="start-date">
+                      <input type="date" value="{{.ProjectDetail.StartDate}}" class="form-control" id="start_date" name="start-date">
                     </div>
                       <div class="mb-3 w-100">
                       <label for="and_date" class="form-label">End Date</label>
-                      <input type="date" class="form-control" id="end_date" name="end-date">
+                      <input type="date" value="{{.ProjectDetail.EndDate}}" class="form-control" id="end_date" name="end-date">
                     </div>
                   </div>
 
                   <div class="mb-3 ms-5 me-5">
                     <label for="message" class="form-label">Description</label>
-                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                    <textarea class="form-control" id="message" name="message" rows="3">{{.ProjectDetail.Description}}</textarea>
 
                     <div class="mb-3">
                       <label class="form-label">Technologies</label>
@@ -89,7 +89,7 @@
               <input type="file" id="upload-image" class="form-control shadow-sm rounded">
           </div>
           <div class="mb-4 d-flex justify-content-end">
-              <button type="" class="btn btn-primary">Submit</button>
+              <button type="" class="btn btn-primary">Update</button>
           </div>
       </form>
     </div>

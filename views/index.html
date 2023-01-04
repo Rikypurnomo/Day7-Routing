@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="/home" class="nav-link active me-3" aria-current="page">Home</a>
+                        <a href="/project" class="nav-link active me-3" aria-current="page">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="/project" class="nav-link">Add Project</a>
@@ -71,25 +71,32 @@
             <div class="card-body me-5 ms-5">
                 <h2 class="text-center me-5 ms-5 ">MY PROJECT</h2>
                 <div class="row row-cols-2 row-cols-md-4 g-3">
+                    {{range $index, $data := .Projects}}
                     <div class="col">
                         <div class="card h-100">
                             <img src="/public/assets/images/45432454_605.jpg" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ut expedita.</p>
+                                <a href="/project/{{$index}}" class="text-decoration-none">
+                                <h5 class="card-title">{{$data.ProjectName}}</h5>
+                                </a>
+                                <p class="card-text duration">Durasi: {{$data.Duration}}</p>
                                 <div class="tech-icon fs-3">
+                                    <p class="card-text" style="text-align: justify; text-align: center">
+                                        {{$data.Description}}
+                                    </p>
+                                    {{range $index, $data := $data.Technologies}}
                                     <img src="/public/assets/images/icons8-playstore-24.png" class="me-3" width="25px">
-                                    <img src="/public/assets/images/icons8-android-os-35.svg" class="me-3" width="25px">
-                                    <img src="/public/assets/images/icons8-java-35.png" class="me-3" width="25px">
+                                    {{end}}
                                 </div>
                                 <div class="card-button w-100 d-flex justify-content-between">
-                                    <button class="btn btn-dark w-50 m-1">Edit</button>
-                                    <button class="btn btn-dark w-50 m-1">Delete</button>
+                                    <a class="btn btn-sm w-100 bg-dark text-white" href="/edit/{{$index}}">Edit</a>
+                                    <a class="btn btn-sm w-100 bg-dark text-white" href="/delete/{{$index}}">Delete</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    {{end}}
+                    <!-- <div class="col">
                         <div class="card h-100">
                             <img src="/public/assets/images/technology-monitor-alpha-coders-binary-wallpaper-preview.jpg" class="card-img-top">
                             <div class="card-body">
@@ -106,9 +113,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card h-100">
                             <img src="/public/assets/images/bcr.webp" class="card-img-top">
                             <div class="card-body">
@@ -166,7 +173,7 @@
                             </div>
                         </div>
                         </div>
-                    </div>
+                    </div> -->
             </div>
         </div>
     </main>
